@@ -1,6 +1,11 @@
 import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import java.io.File;
+
+import javax.imageio.ImageIO;
+
+import java.awt.image.BufferedImage;
 
 public class ApplicationRobot{
     public static void main(String[]args) throws Exception{
@@ -29,6 +34,10 @@ public class ApplicationRobot{
         robot.delay(1000);
         robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
         robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-        robot.createScreenCapture(new Rectangle(1920,1200,));
+        BufferedImage image = robot.createScreenCapture(new Rectangle(1920,1200,0,0));
+        File file = new File("myScreenShot.png");
+        ImageIO.write(image, "png", file);
+        System.out.println("A screenshot is captured to " + file.getPath());
+        
     }
 }
