@@ -34,6 +34,7 @@ public class ApplicationRobot{
         robot.delay(1000);
         robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
         robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Rectangle bounds = new Rectangle(screenSize);
         BufferedImage image = robot.createScreenCapture(bounds);
