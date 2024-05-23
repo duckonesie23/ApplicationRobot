@@ -14,7 +14,7 @@ public class ApplicationRobot{
         robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
         robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
         robot.delay(500);
-        robot.mouseMove(100, 700);
+        robot.mouseMove(100, 900);
         robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
         robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
         robot.delay(500);
@@ -34,10 +34,15 @@ public class ApplicationRobot{
         robot.delay(1000);
         robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
         robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-        BufferedImage image = robot.createScreenCapture(new Rectangle(1920,1200,0,0));
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Rectangle bounds = new Rectangle(screenSize);
+        BufferedImage image = robot.createScreenCapture(bounds);
         File file = new File("myScreenShot.png");
         ImageIO.write(image, "png", file);
         System.out.println("A screenshot is captured to " + file.getPath());
-        
+
+        robot.mouseMove(1740, 90);
+        robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
     }
 }
